@@ -1,5 +1,5 @@
 -cp src
 -D analyzer-optimize
--D day=4
+-D day=5
 -main Main
 --interp
