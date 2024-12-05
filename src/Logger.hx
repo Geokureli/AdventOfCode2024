@@ -1,23 +1,46 @@
 import haxe.PosInfos;
 
-class Logger
+@:forward
+abstract Logger(LoggerRaw)
 {
-    var level:LogLevel;
-    
-    public function new (level)
+    public function new (id, level)
     {
+        this = new LoggerRaw(id, level);
+    }
+    
+    @:op(a())
+    inline function callPos(msg:Dynamic, ?pos:PosInfos)
+    {
+        this.log(msg, pos);
+    }
+}
+
+@:allow(Logger)
+private class LoggerRaw
+{
+    public final id:String;
+    public final level:LogLevel;
+    
+    public function new (id, level)
+    {
+        this.id = id;
         this.level = level;
     }
     
-    inline function log(level:LogLevel, msg:Dynamic, ?pos)
+    inline function log(msg:Dynamic, ?pos:PosInfos)
     {
-        if (this.level >= level)
-            haxe.Log.trace(msg, pos);
+        haxe.Log.trace('$id: $msg', pos);
     }
     
-    public function warn   (msg:Dynamic, ?pos) log(WARN, msg, pos);
-    public function info   (msg:Dynamic, ?pos) log(INFO, msg, pos);
-    public function verbose(msg:Dynamic, ?pos) log(VERBOSE, msg, pos);
+    inline function logIf(level:LogLevel, msg:Dynamic, ?pos)
+    {
+        if (this.level >= level)
+            log('$id: $msg', pos);
+    }
+    
+    public function warn   (msg:Dynamic, ?pos) logIf(WARN, msg, pos);
+    public function info   (msg:Dynamic, ?pos) logIf(INFO, msg, pos);
+    public function verbose(msg:Dynamic, ?pos) logIf(VERBOSE, msg, pos);
 }
 
 enum abstract LogLevel(Int)

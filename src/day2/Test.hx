@@ -23,7 +23,8 @@ class Test extends BaseTest
                 log.verbose('Safe report: $report');
             }
         }
-        trace('Safe reports: $numSafe');
+        
+        log('Safe reports: $numSafe');
     }
     
     function isSafe(report:Array<Int>, allowDampening = true)

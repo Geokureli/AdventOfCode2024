@@ -1,3 +1,4 @@
+import haxe.PosInfos;
 import Logger;
 
 class BaseTest
@@ -7,7 +8,9 @@ class BaseTest
     
     public function new(logLevel = LogLevel.NONE)
     {
-        log = new Logger(logLevel);
+        final id = Type.getClassName(Type.getClass(this)).split(".")[0];
+        log = new Logger(id, logLevel);
+        // log('Running $id');
     }
 }
 

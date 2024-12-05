@@ -1,6 +1,6 @@
-package day0;
+package day23;
 
-import day0.Data;
+import day23.Data;
 
 class Test extends BaseTest
 {

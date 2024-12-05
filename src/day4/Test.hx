@@ -83,8 +83,8 @@ class Test extends BaseTest
         assert.equalTo(test1Replace(example2), result2);
         assert.equalTo(test1Replace(example3), result3);
         
-        trace("test1 answer: " + test1(Data.get()));
-        trace("test2 answer: " + test2(Data.get()));
+        log("test1 answer: " + test1(Data.get()));
+        log("test2 answer: " + test2(Data.get()));
     }
     
     function test1Replace(input:String, logInfo = false):String

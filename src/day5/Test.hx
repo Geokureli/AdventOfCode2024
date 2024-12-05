@@ -11,8 +11,8 @@ class Test extends BaseTest
         assert.equalTo(test1(Data.rulesEx1, Data.updatesEx1), 143);
         assert.equalTo(test2(Data.rulesEx1, Data.updatesEx1), 123);
         
-        trace("test1 answer: " + test1(Data.rules, Data.updates));
-        trace("test2 answer: " + test2(Data.rules, Data.updates));
+        log("test1 answer: " + test1(Data.rules, Data.updates));
+        log("test2 answer: " + test2(Data.rules, Data.updates));
     }
     
     function test1(rules:RulesList, lists:Array<UpdateList>, logResults = false)

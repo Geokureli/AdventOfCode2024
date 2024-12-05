@@ -21,15 +21,15 @@ class Test extends BaseTest
             sumDiff += diff < 0 ? -diff : diff;
         }
         
-        trace('Total difference: $sumDiff');
+        log('test1 answer: $sumDiff');
         
         var score = 0;
         var i = 0;
         for (num in left)
         {
-            // trace('num is $num');
+            // log('num is $num');
             while (right[i] < num) {
-                // trace('skipping ${right[i]}');
+                // log('skipping ${right[i]}');
                 i++;
             }
             
@@ -40,9 +40,9 @@ class Test extends BaseTest
                 i++;
             }
             score += num * numFound;
-            // trace('$num found $numFound times');
+            // log('$num found $numFound times');
         }
         
-        trace('similarity score: $score');
+        log('test2 answer: $score');
     }
 }

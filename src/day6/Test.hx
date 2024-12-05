@@ -7,8 +7,8 @@ class Test extends BaseTest
     public function new()
     {
         super();
-        trace("test1 answer: " + test1());
-        trace("test2 answer: " + test2());
+        log("test1 answer: " + test1());
+        log("test2 answer: " + test2());
     }
     
     function test1()
